@@ -1,6 +1,6 @@
 # Tree React Component
 
-[![NPM](https://img.shields.io/npm/v/@kaprisa57/react-tree/.svg)](https://www.npmjs.com/package/@kaprisa57/react-tree/) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Coverage Status](https://coveralls.io/repos/github/kseniya57/react-tree/badge.svg?branch=main)](https://coveralls.io/github/kseniya57/react-tree?branch=main)
+[![NPM](https://img.shields.io/npm/v/@kaprisa57/react-tree.svg)](https://www.npmjs.com/package/@kaprisa57/react-tree/) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Coverage Status](https://coveralls.io/repos/github/kseniya57/react-tree/badge.svg?branch=main)](https://coveralls.io/github/kseniya57/react-tree?branch=main)
 
 - [Docs](https://kseniya57.github.io/react-tree/?path=/docs/tree--playground)
 - [Playground](https://kseniya57.github.io/react-tree/?path=/story/tree--playground)
