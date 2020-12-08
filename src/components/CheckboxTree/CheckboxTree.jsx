@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import produce from 'immer';
 import _ from 'lodash';
@@ -6,22 +6,31 @@ import Tree from 'components/Tree';
 import Leaf from './components/Leaf';
 import { findNodeDeep, normalizeTree, setValuesRecursive } from './helpers';
 
-function CheckboxTree({ nodes, values, onChange, ...props }) {
+function CheckboxTree({ nodes, checkedKeys, onChange, ...props }) {
+  const treeValues = useMemo(
+    () => _.fromPairs(checkedKeys.map((item) => [item, true])),
+    [checkedKeys]
+  );
+
   const handleChange = useCallback(
-    (value, elementName) => {
-      onChange(
-        produce(values, (draft) => {
-          const node = findNodeDeep(nodes, elementName);
-          setValuesRecursive(node, draft, value);
-          normalizeTree(nodes, draft);
-        })
-      );
+    (value, nodeId) => {
+      const newValues = produce(treeValues, (draft) => {
+        const node = findNodeDeep(nodes, nodeId);
+        setValuesRecursive(node, draft, value);
+        normalizeTree(nodes, draft);
+      });
+      onChange(_.keys(newValues).filter((key) => newValues[key]));
     },
-    [onChange, nodes, values]
+    [onChange, nodes, treeValues]
   );
 
   return (
-    <Tree {...props} onChange={handleChange} nodes={nodes} values={values} />
+    <Tree
+      {...props}
+      onChange={handleChange}
+      nodes={nodes}
+      checkedKeys={treeValues}
+    />
   );
 }
 
@@ -34,7 +43,7 @@ CheckboxTree.defaultProps = {
   ...Tree.defaultProps,
   renderLeaf: (props) => <Leaf {...props} />,
   onChange: _.noop,
-  values: {},
+  checkedKeys: [],
 };
 
 export default CheckboxTree;

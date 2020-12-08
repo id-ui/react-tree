@@ -9,18 +9,18 @@ export default {
   title: 'CheckboxTree',
   component: CheckboxTree,
   argTypes: {
-    values: {
+    checkedKeys: {
       disable: true,
-      description: 'tree values with shape { name: checked }',
+      description: 'array of checked node ids',
       table: {
-        defaultValue: { summary: '{}' },
+        defaultValue: { summary: '[]' },
       },
     },
     ...TreeStory.argTypes,
     renderLeaf: {
       disable: true,
       description:
-        'Function, that accepts all node props, tree values { name: checked } and collapse props ({ open, close, toggle, isOpen }) and returns node content. Content should apply collapse functions from props to open/close content',
+        'Function, that accepts all node props, checkedKeys and collapse props ({ open, close, toggle, isOpen }) and returns node content. Content should apply collapse functions from props to open/close content',
       table: {
         defaultValue: { summary: '(props) => <CheckboxTreeLeaf {...props} />' },
       },
@@ -64,13 +64,13 @@ export default {
 };
 
 export function Playground(props) {
-  const [values, setValues] = useState({});
+  const [checkedKeys, setCheckedKeys] = useState([]);
   return (
     <CheckboxTree
       {...props}
-      values={values}
+      checkedKeys={checkedKeys}
       nodes={nodes}
-      onChange={setValues}
+      onChange={setCheckedKeys}
     />
   );
 }

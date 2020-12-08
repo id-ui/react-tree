@@ -14,11 +14,11 @@ describe('CheckboxTree', () => {
 
   it('opens and closes children', async () => {
     const { getByText, queryByText } = render(<CheckboxTree nodes={nodes} />);
-    user.click(getByText('Drink'));
-    user.click(getByText('Tea'));
-    user.click(getByText('Black'));
+    user.click(getByText('Drink').parentElement.previousElementSibling);
+    user.click(getByText('Tea').parentElement.previousElementSibling);
+    user.click(getByText('Black').parentElement.previousElementSibling);
     expect(getByText('With Sugar')).toBeInTheDocument();
-    user.click(getByText('Drink'));
+    user.click(getByText('Drink').parentElement.previousElementSibling);
     await waitFor(() =>
       expect(queryByText('With Sugar')).not.toBeInTheDocument()
     );
@@ -29,20 +29,12 @@ describe('CheckboxTree', () => {
     const { getByText } = render(
       <CheckboxTree onChange={handleChange} nodes={nodes} />
     );
-    user.click(getByText('Drink'));
-    user.click(getByText('Tea'));
-    user.click(getByText('Black'));
-    user.click(getByText('With Sugar').previousElementSibling);
+    user.click(getByText('Drink').parentElement.previousElementSibling);
+    user.click(getByText('Tea').parentElement.previousElementSibling);
+    user.click(getByText('Black').parentElement.previousElementSibling);
+    user.click(getByText('With Sugar'));
     expect(handleChange).toHaveBeenCalledTimes(1);
-    expect(handleChange).toHaveBeenCalledWith({
-      Black: false,
-      Cake: false,
-      Coffee: false,
-      Drink: false,
-      MilkCocktail: false,
-      Tea: false,
-      WithSugar: true,
-    });
+    expect(handleChange).toHaveBeenCalledWith(['WithSugar']);
   });
 
   it('check node with children', () => {
@@ -50,19 +42,14 @@ describe('CheckboxTree', () => {
     const { getByText } = render(
       <CheckboxTree onChange={handleChange} nodes={nodes} />
     );
-    user.click(getByText('Cake').previousElementSibling);
+    user.click(getByText('Cake'));
     expect(handleChange).toHaveBeenCalledTimes(1);
-    expect(handleChange).toHaveBeenCalledWith({
-      Cake: true,
-      Black: false,
-      Chocolate: true,
-      Coffee: false,
-      Drink: false,
-      MilkCocktail: false,
-      Strawberry: true,
-      Tea: false,
-      Vanilla: true,
-    });
+    expect(handleChange).toHaveBeenCalledWith([
+      'Chocolate',
+      'Vanilla',
+      'Strawberry',
+      'Cake',
+    ]);
   });
 
   it('check node with children if one of children is disabled', () => {
@@ -70,24 +57,21 @@ describe('CheckboxTree', () => {
     const { getByText } = render(
       <CheckboxTree onChange={handleChange} nodes={nodes} />
     );
-    user.click(getByText('Drink').previousElementSibling);
+    user.click(getByText('Drink'));
     expect(handleChange).toHaveBeenCalledTimes(1);
-    expect(handleChange).toHaveBeenCalledWith({
-      Black: true,
-      Cake: false,
-      Coffee: true,
-      Drink: false,
-      MilkCocktail: false,
-      Tea: true,
-      WithSugar: true,
-      Green: true,
-      Herbal: true,
-      HotChocolate: true,
-      HotMilk: true,
-      Latte: true,
-      WithoutSugar: true,
-      Americano: true,
-      Cappuccino: true,
-    });
+    expect(handleChange).toHaveBeenCalledWith([
+      'Cappuccino',
+      'Latte',
+      'Americano',
+      'HotChocolate',
+      'Green',
+      'Herbal',
+      'WithSugar',
+      'WithoutSugar',
+      'HotMilk',
+      'Coffee',
+      'Black',
+      'Tea',
+    ]);
   });
 });

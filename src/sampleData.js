@@ -1,79 +1,79 @@
 export const nodes = [
   {
     label: 'Cake',
-    name: 'Cake',
+    id: 'Cake',
     icon: '🍰',
     childNodes: [
       {
         label: 'Chocolate',
-        name: 'Chocolate',
+        id: 'Chocolate',
         icon: '🍫',
       },
       {
         label: 'Vanilla',
-        name: 'Vanilla',
+        id: 'Vanilla',
         icon: '🍬',
       },
       {
         label: 'Strawberry',
-        name: 'Strawberry',
+        id: 'Strawberry',
         icon: '🍓',
       },
     ],
   },
   {
     label: 'Drink',
-    name: 'Drink',
+    id: 'Drink',
     icon: '🍹',
     childNodes: [
       {
         label: 'Coffee',
-        name: 'Coffee',
+        id: 'Coffee',
         icon: '☕️',
         childNodes: [
           {
             label: 'Cappuccino',
-            name: 'Cappuccino',
+            id: 'Cappuccino',
           },
           {
             label: 'Latte',
-            name: 'Latte',
+            id: 'Latte',
           },
           {
             label: 'Americano',
-            name: 'Americano',
+            id: 'Americano',
           },
         ],
       },
       {
         label: 'Hot Chocolate',
-        name: 'HotChocolate',
+        id: 'HotChocolate',
         icon: '🧋',
       },
       {
         label: 'Tea',
-        name: 'Tea',
+        id: 'Tea',
         icon: '🫖',
         childNodes: [
           {
             label: 'Green',
-            name: 'Green',
+            id: 'Green',
           },
           {
             label: 'Herbal',
-            name: 'Herbal',
+            id: 'Herbal',
           },
           {
             label: 'Black',
-            name: 'Black',
+            id: 'Black',
             childNodes: [
               {
                 label: 'With Sugar',
-                name: 'WithSugar',
+                id: 'WithSugar',
               },
               {
                 label: 'Without Sugar',
-                name: 'WithoutSugar',
+                id: 'WithoutSugar',
               },
             ],
           },
@@ -81,32 +81,32 @@ export const nodes = [
       },
       {
         label: 'Milk Cocktail',
-        name: 'MilkCocktail',
+        id: 'MilkCocktail',
         disabled: true,
         icon: '🍶',
         childNodes: [
           {
             label: 'Vanilla',
-            name: 'VanillaCocktail',
+            id: 'VanillaCocktail',
             value: true,
           },
           {
             label: 'Chocolate',
-            name: 'ChocolateCocktail',
+            id: 'ChocolateCocktail',
           },
           {
             label: 'Strawberry',
-            name: 'StrawberryCocktail',
+            id: 'StrawberryCocktail',
           },
           {
             label: 'Banana',
-            name: 'BananaCocktail',
+            id: 'BananaCocktail',
           },
         ],
       },
       {
         label: 'Hot Milk',
-        name: 'HotMilk',
+        id: 'HotMilk',
         icon: '🥛',
       },
     ],

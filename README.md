@@ -109,22 +109,22 @@ import React, { useState } from 'react'
 import { CheckboxTree } from '@idui/react-tree'
 
 const nodes = [
-    { label: 'Cake', name: 'cake' },
-    { label: 'Coffee', name: 'coffee', children: [
-        { label: 'Cappuccino', name: 'Cappuccino' },
-        { label: 'Latte', name: 'Latte' },
-        { label: 'Americano', name: 'Americano' },
+    { label: 'Cake', id: 'cake' },
+    { label: 'Coffee', id: 'coffee', children: [
+        { label: 'Cappuccino', id: 'Cappuccino' },
+        { label: 'Latte', id: 'Latte' },
+        { label: 'Americano', id: 'Americano' },
     ]},
 ]
 
 function Example() {
-  const [values, setValues] = useState({});
+  const [checkedKeys, setCheckedKeys] = useState([]);
     return (
       <CheckboxTree
         {...props}
-        values={values}
+        checkedKeys={checkedKeys}
         nodes={nodes}
-        onChange={setValues}
+        onChange={setCheckedKeys}
       />
     );
 }

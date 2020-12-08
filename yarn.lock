@@ -1198,10 +1198,10 @@
     styled-components "^5.2.1"
     styled-tools "^1.7.2"
 
-"@idui/react-toggle-controls@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@idui/react-toggle-controls/-/react-toggle-controls-1.0.0.tgz#2fff9996289f8e89db6ce4a527b0fe85b50ced77"
-  integrity sha512-FVnK1T3ATZZwk9EjlluayPw2XJcM70JbenVYKz8afCQ4iQy+gUL7D4mJvoOJZ/W24XnLvoyMfnXCVbGXNgRetg==
+"@idui/react-toggle-controls@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@idui/react-toggle-controls/-/react-toggle-controls-1.0.1.tgz#ed38702edafad7c04490b19754bed5eaf4d4ed35"
+  integrity sha512-fJiZpWGVqRtrf9BYSV19DpVtBBoj1CBsNYrG8QONEZQzCxxiZIMmGHNMG6JSovR/woeSKxwtgXYk5qGHbyHbGA==
   dependencies:
     prop-types "^15.7.2"
     styled-components "^5.2.1"

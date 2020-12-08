@@ -2,12 +2,12 @@ import React, { useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox } from '@idui/react-toggle-controls';
 import { isAnyCheckedDeep } from 'components/CheckboxTree/helpers';
-import { Container, Label, AnyCheckedIcon } from './styled';
+import { Container, LeafCheckbox, AnyCheckedIcon, ToggleIcon } from './styled';
 
 function Leaf({
   label,
-  name,
-  values,
+  id,
+  checkedKeys,
   onChange,
   toggle,
   disabled,
@@ -17,39 +17,45 @@ function Leaf({
   allCheckedIcon,
   anyCheckedIcon,
   checkboxSize,
+  hasChildren,
+  isOpen,
 }) {
   const handleChange = useCallback(
     (checked) => {
-      onChange(!childNodes || values[name] ? checked : true, name);
+      onChange(!childNodes || checkedKeys[id] ? checked : true, id);
     },
-    [onChange, name, childNodes, values]
+    [onChange, id, childNodes, checkedKeys]
   );
 
   const isChecked = useMemo(
-    () => (childNodes ? isAnyCheckedDeep(childNodes, values) : values[name]),
-    [values, childNodes, name]
+    () =>
+      childNodes ? isAnyCheckedDeep(childNodes, checkedKeys) : checkedKeys[id],
+    [checkedKeys, childNodes, id]
   );
 
   return (
     <Container className={className}>
-      <Checkbox
-        name={name}
+      {hasChildren && (
+        <ToggleIcon onClick={toggle}>{isOpen ? '▾' : '▸'}</ToggleIcon>
+      )}
+      <LeafCheckbox
+        name={id}
         checked={isChecked}
         onChange={handleChange}
         disabled={disabled}
-        icon={values[name] ? allCheckedIcon : anyCheckedIcon}
+        icon={checkedKeys[id] ? allCheckedIcon : anyCheckedIcon}
         colors={colors}
         size={checkboxSize}
+        label={label}
       />
-      <Label onClick={toggle}>{label}</Label>
     </Container>
   );
 }
 
 Leaf.propTypes = {
   label: PropTypes.string,
-  name: PropTypes.string,
-  values: PropTypes.object,
+  id: PropTypes.string,
+  checkedKeys: PropTypes.object,
   onChange: PropTypes.func,
   toggle: PropTypes.func,
   disabled: PropTypes.bool,

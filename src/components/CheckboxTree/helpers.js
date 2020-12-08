@@ -1,32 +1,32 @@
-export const setValuesRecursive = (node, values, value) => {
+export const setValuesRecursive = (node, checkedKeys, value) => {
   if (node.disabled) {
     return;
   }
 
   if (node.childNodes) {
     node.childNodes.forEach((child) =>
-      setValuesRecursive(child, values, value)
+      setValuesRecursive(child, checkedKeys, value)
     );
   } else {
-    values[node.name] = value;
+    checkedKeys[node.id] = value;
   }
 };
 
-export const normalizeTree = (nodes, values) =>
+export const normalizeTree = (nodes, checkedKeys) =>
   nodes.forEach((node) => {
     if (node.childNodes) {
-      normalizeTree(node.childNodes, values);
-      values[node.name] = isAllCheckedDeep(node.childNodes, values);
+      normalizeTree(node.childNodes, checkedKeys);
+      checkedKeys[node.id] = isAllCheckedDeep(node.childNodes, checkedKeys);
     }
   });
 
-export const findNodeDeep = (nodes, name) => {
+export const findNodeDeep = (nodes, id) => {
   for (let index = 0; index < nodes.length; index++) {
     const node = nodes[index];
-    if (node.name === name) {
+    if (node.id === id) {
       return node;
     } else if (node.childNodes) {
-      const result = findNodeDeep(node.childNodes, name);
+      const result = findNodeDeep(node.childNodes, id);
       if (result) {
         return result;
       }
@@ -34,16 +34,16 @@ export const findNodeDeep = (nodes, name) => {
   }
 };
 
-export const isAllCheckedDeep = (nodes, values) =>
+export const isAllCheckedDeep = (nodes, checkedKeys) =>
   nodes.every((node) =>
     node.childNodes
-      ? isAllCheckedDeep(node.childNodes, values)
-      : values[node.name]
+      ? isAllCheckedDeep(node.childNodes, checkedKeys)
+      : checkedKeys[node.id]
   );
 
-export const isAnyCheckedDeep = (nodes, values) =>
+export const isAnyCheckedDeep = (nodes, checkedKeys) =>
   nodes.some((node) =>
     node.childNodes
-      ? isAnyCheckedDeep(node.childNodes, values)
-      : values[node.name]
+      ? isAnyCheckedDeep(node.childNodes, checkedKeys)
+      : checkedKeys[node.id]
   );
