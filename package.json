@@ -1,6 +1,6 @@
 {
   "name": "@idui/react-tree",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "React Tree Component",
   "author": "kaprisa57@gmail.com",
   "license": "MIT",
@@ -90,7 +90,7 @@
   ],
   "dependencies": {
     "@idui/react-collapse": "^1.0.0",
-    "@idui/react-toggle-controls": "^1.0.1",
+    "@idui/react-toggle-controls": "^1.1.0",
     "immer": "^8.0.0",
     "lodash": "^4.17.20",
     "prop-types": "^15.7.2",
