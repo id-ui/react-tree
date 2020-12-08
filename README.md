@@ -1,28 +1,28 @@
 # Tree React Component
 
-[![NPM](https://img.shields.io/npm/v/@kaprisa57/react-tree.svg)](https://www.npmjs.com/package/@kaprisa57/react-tree/) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Coverage Status](https://coveralls.io/repos/github/kseniya57/react-tree/badge.svg?branch=main)](https://coveralls.io/github/kseniya57/react-tree?branch=main)
+[![NPM](https://img.shields.io/npm/v/@idui/react-tree.svg)](https://www.npmjs.com/package/@idui/react-tree/) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Coverage Status](https://coveralls.io/repos/github/id-ui/react-tree/badge.svg?branch=main)](https://coveralls.io/github/id-ui/react-tree?branch=main)
 
-- [Docs](https://kseniya57.github.io/react-tree/?path=/docs/tree--playground)
-- [Playground](https://kseniya57.github.io/react-tree/?path=/story/tree--playground)
+- [Docs](https://id-ui.github.io/react-tree/?path=/docs/tree--playground)
+- [Playground](https://id-ui.github.io/react-tree/?path=/story/tree--playground)
 
 ## Install
 
 ```bash
-npm install --save @kaprisa57/react-tree
+npm install --save @idui/react-tree
 ```
 
 ```bash
-yarn add @kaprisa57/react-tree
+yarn add @idui/react-tree
 ```
 
-### See props in [Docs](https://kseniya57.github.io/react-tree/?path=/docs/tree--playground)
+### See props in [Docs](https://id-ui.github.io/react-tree/?path=/docs/tree--playground)
 
 
 ### Basic Example
 
 ```jsx
 import React from 'react'
-import Tree from '@kaprisa57/react-tree'
+import Tree from '@idui/react-tree'
 
 const nodes = [
     { label: 'Cake' },
@@ -40,12 +40,12 @@ function Example() {
 
 ### Custom Tree
 
-- [Live Example](https://kseniya57.github.io/react-tree/?path=/story/tree--custom-tree)
+- [Live Example](https://id-ui.github.io/react-tree/?path=/story/tree--custom-tree)
 
 ```jsx
 import React from 'react'
 import styled from 'styled-components'
-import Tree from '@kaprisa57/react-tree'
+import Tree from '@idui/react-tree'
 
 const CustomTree = styled(Tree)`
   border-left: 1px solid #aeaeae;
@@ -101,12 +101,12 @@ function Example() {
 
 ### Checkbox Tree
 
-- [Props](https://kseniya57.github.io/react-tree/?path=/docs/checkbox-tree--playground)
-- [Live Example](https://kseniya57.github.io/react-tree/?path=/story/checkbox-tree--playground)
+- [Props](https://id-ui.github.io/react-tree/?path=/docs/checkbox-tree--playground)
+- [Live Example](https://id-ui.github.io/react-tree/?path=/story/checkbox-tree--playground)
 
 ```jsx
 import React, { useState } from 'react'
-import { CheckboxTree } from '@kaprisa57/react-tree'
+import { CheckboxTree } from '@idui/react-tree'
 
 const nodes = [
     { label: 'Cake', name: 'cake' },
@@ -135,7 +135,7 @@ function Example() {
 ```jsx
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import Tree from '@kaprisa57/react-tree'
+import Tree from '@idui/react-tree'
 
 const nodes = [
     { label: 'Cake' },
@@ -177,8 +177,8 @@ function Example() {
 }
 ```
 
-### See more details in [storybook](https://kseniya57.github.io/react-tree/?path=/docs/tree--playground)
+### See more details in [storybook](https://id-ui.github.io/react-tree/?path=/docs/tree--playground)
 
 ## License
 
-MIT © [kaprisa57@gmail.com](https://github.com/kaprisa57@gmail.com)
+MIT © [kaprisa57@gmail.com](https://github.com/id-ui@gmail.com)

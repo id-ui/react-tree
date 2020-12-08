@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { withPropsTable } from 'storybook-addon-react-docgen';
-import { Checkbox } from '@kaprisa57/react-toggle-controls';
+import { Checkbox } from '@idui/react-toggle-controls';
 import { nodes } from 'sampleData';
 import TreeStory from 'components/Tree/tree.stories';
 import CheckboxTree from './CheckboxTree';
@@ -27,7 +27,7 @@ export default {
     },
     colors: {
       control: 'object',
-      description: 'checkbox colors. (See @kaprisa57/react-toggle-controls)',
+      description: 'checkbox colors. (See @idui/react-toggle-controls)',
       defaultValue: Checkbox.defaultProps.colors,
       table: {
         defaultValue: { summary: JSON.stringify(Checkbox.defaultProps.colors) },
@@ -38,7 +38,7 @@ export default {
       description:
         'checkbox checked icon if node has no childNodes or all node childNodes checked',
       table: {
-        defaultValue: '@kaprisa57/react-toggle-controls checkbox check icon',
+        defaultValue: '@idui/react-toggle-controls checkbox check icon',
       },
     },
     anyCheckedIcon: {

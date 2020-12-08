@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Collapse from '@kaprisa57/react-collapse';
+import Collapse from '@idui/react-collapse';
 import { prop } from 'styled-tools';
 
 export const Header = styled(Collapse.Header)`

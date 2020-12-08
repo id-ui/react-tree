@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Collapse from '@kaprisa57/react-collapse';
+import Collapse from '@idui/react-collapse';
 import { Body, Header } from './styled';
 
 function TreeNode({

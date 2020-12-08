@@ -16,8 +16,8 @@ module.exports = {
     'prop-types',
     'styled-components',
     'styled-tools',
-    '@kaprisa57/react-collapse',
-    '@kaprisa57/react-toggle-controls',
+    '@idui/react-collapse',
+    '@idui/react-toggle-controls',
   ],
   module: {
     rules: [

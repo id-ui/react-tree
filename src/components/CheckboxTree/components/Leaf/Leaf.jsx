@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Checkbox } from '@kaprisa57/react-toggle-controls';
+import { Checkbox } from '@idui/react-toggle-controls';
 import { isAnyCheckedDeep } from 'components/CheckboxTree/helpers';
 import { Container, Label, AnyCheckedIcon } from './styled';
 
