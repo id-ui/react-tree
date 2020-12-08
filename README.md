@@ -181,4 +181,4 @@ function Example() {
 
 ## License
 
-MIT © [kaprisa57@gmail.com](https://github.com/id-ui@gmail.com)
+MIT © [kaprisa57@gmail.com](https://github.com/id-ui)
