@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { withPropsTable } from 'storybook-addon-react-docgen';
-import { Checkbox } from '@idui/react-toggle-controls';
 import { nodes } from 'sampleData';
 import TreeStory from 'components/Tree/tree.stories';
 import CheckboxTree from './CheckboxTree';
+import { checkboxColors } from './components/Leaf/theme';
 
 export default {
   title: 'CheckboxTree',
@@ -28,9 +28,9 @@ export default {
     colors: {
       control: 'object',
       description: 'checkbox colors. (See @idui/react-toggle-controls)',
-      defaultValue: Checkbox.defaultProps.colors,
+      defaultValue: checkboxColors,
       table: {
-        defaultValue: { summary: JSON.stringify(Checkbox.defaultProps.colors) },
+        defaultValue: { summary: JSON.stringify(checkboxColors) },
       },
     },
     allCheckedIcon: {
