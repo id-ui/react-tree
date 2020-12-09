@@ -27,7 +27,7 @@ export default {
     },
     colors: {
       control: 'object',
-      description: 'checkbox colors. (See @idui/react-toggle-controls)',
+      description: 'checkbox colors for on/off/anyChecked/disabled states. (See @idui/react-toggle-controls)',
       defaultValue: checkboxColors,
       table: {
         defaultValue: { summary: JSON.stringify(checkboxColors) },
