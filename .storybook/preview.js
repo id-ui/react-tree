@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     body {
       font-size: 1.4rem;
       font-family: Roboto, sans-serif;
-      color: #141414;
+      color: #14113C;
     }
     
     * {
@@ -29,7 +29,7 @@ const Container = styled.div`
   height: 500px;
   padding: 20px;
   border-radius: 10px;
-  background-color: #fffcfc;
+  background-color: #f9f2ff;
   display: flex;
   flex-direction: column;
 `;

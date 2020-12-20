@@ -30,7 +30,7 @@ function Leaf({
 
   const isAnyChecked = useMemo(
     () => childNodes && isAnyCheckedDeep(childNodes, checkedKeys),
-    [checkedKeys, childNodes, id]
+    [checkedKeys, childNodes]
   );
 
   const actualColors = useMemo(
