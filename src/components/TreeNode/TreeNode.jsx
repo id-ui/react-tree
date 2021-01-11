@@ -23,7 +23,7 @@ function TreeNode({
   }
 
   return (
-    <Collapse isOpen={isOpen} isOpenControlled onChangeOpen={setOpen}>
+    <Collapse isOpen={isOpen} onChangeOpen={setOpen}>
       <Header>
         {(collapseHeaderProps) =>
           renderLeaf({

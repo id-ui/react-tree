@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { withPropsTable } from 'storybook-addon-react-docgen';
 import { nodes } from 'sampleData';
 import TreeStory from 'components/Tree/tree.stories';
 import CheckboxTree from './CheckboxTree';
@@ -54,12 +53,6 @@ export default {
       description: 'checkbox size',
       defaultValue: '20px',
       table: { defaultValue: { summary: '20px' } },
-    },
-  },
-  decorators: [withPropsTable],
-  parameters: {
-    props: {
-      propTablesInclude: [CheckboxTree],
     },
   },
 };

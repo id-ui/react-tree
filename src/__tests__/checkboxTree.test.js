@@ -5,6 +5,9 @@ import { axe } from 'jest-axe';
 import CheckboxTree from 'components/CheckboxTree';
 import { nodes } from 'sampleData';
 
+const checkIfClosed = (el) => expect(el.parentElement.style.height).toBe('0px');
+const checkIfOpen = (el) => expect(el.parentElement.style.height).toBe('auto');
+
 describe('CheckboxTree', () => {
   it('accessible', async () => {
     const { container } = render(<CheckboxTree nodes={nodes} />);
@@ -13,14 +16,16 @@ describe('CheckboxTree', () => {
   });
 
   it('opens and closes children', async () => {
-    const { getByText, queryByText } = render(<CheckboxTree nodes={nodes} />);
+    const { getByText } = render(<CheckboxTree nodes={nodes} />);
     user.click(getByText('Drink').parentElement.previousElementSibling);
     user.click(getByText('Tea').parentElement.previousElementSibling);
     user.click(getByText('Black').parentElement.previousElementSibling);
-    expect(getByText('With Sugar')).toBeInTheDocument();
+    await waitFor(() =>
+      checkIfOpen(getByText('Hot Chocolate').parentElement.parentElement)
+    );
     user.click(getByText('Drink').parentElement.previousElementSibling);
     await waitFor(() =>
-      expect(queryByText('With Sugar')).not.toBeInTheDocument()
+      checkIfClosed(getByText('Hot Chocolate').parentElement.parentElement)
     );
   });
 

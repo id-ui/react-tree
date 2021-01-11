@@ -1,5 +1,4 @@
 import React from 'react';
-import { withPropsTable } from 'storybook-addon-react-docgen';
 import { nodes } from 'sampleData';
 import TreeNode from './TreeNode';
 
@@ -53,12 +52,6 @@ export default {
     className: {
       control: 'text',
       description: 'TreeNode className',
-    },
-  },
-  decorators: [withPropsTable],
-  parameters: {
-    props: {
-      propTablesInclude: [TreeNode],
     },
   },
 };

@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react';
-import { withPropsTable } from 'storybook-addon-react-docgen';
 import styled, { css } from 'styled-components';
 import { nodes } from 'sampleData';
 import { ifProp } from 'styled-tools';
@@ -86,12 +85,6 @@ export default {
     className: {
       control: 'text',
       description: 'TreeNode className',
-    },
-  },
-  decorators: [withPropsTable],
-  parameters: {
-    props: {
-      propTablesInclude: [Tree],
     },
   },
 };
