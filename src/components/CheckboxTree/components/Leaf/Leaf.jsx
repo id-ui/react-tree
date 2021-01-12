@@ -53,6 +53,7 @@ function Leaf({
       onChange: handleChange,
       disabled,
       label,
+      hasCheckedChildren: isAnyChecked,
     });
   }
 
