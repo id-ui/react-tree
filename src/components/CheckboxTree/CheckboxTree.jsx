@@ -52,6 +52,7 @@ CheckboxTree.defaultProps = {
   ...Tree.defaultProps,
   onChange: _.noop,
   checkedKeys: [],
+  renderLeaf: undefined,
 };
 
 export default CheckboxTree;
