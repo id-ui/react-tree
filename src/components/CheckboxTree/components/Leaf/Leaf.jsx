@@ -20,6 +20,7 @@ function Leaf({
   checkboxSize,
   hasChildren,
   isOpen,
+  render,
 }) {
   const handleChange = useCallback(
     (checked) => {
@@ -41,6 +42,19 @@ function Leaf({
     }),
     [colors, isAnyChecked]
   );
+
+  if (render) {
+    render({
+      hasChildren,
+      toggle,
+      isOpen,
+      name: id,
+      checked: checkedKeys[id],
+      onChange: handleChange,
+      disabled,
+      label,
+    });
+  }
 
   return (
     <Container className={className}>
@@ -74,6 +88,7 @@ Leaf.propTypes = {
   allCheckedIcon: PropTypes.any,
   anyCheckedIcon: PropTypes.any,
   checkboxSize: PropTypes.string,
+  render: PropTypes.func.isRequired,
 };
 
 Leaf.defaultProps = {

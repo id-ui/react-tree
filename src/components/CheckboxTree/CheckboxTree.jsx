@@ -6,7 +6,13 @@ import Tree from 'components/Tree';
 import Leaf from './components/Leaf';
 import { findNodeDeep, normalizeTree, setValuesRecursive } from './helpers';
 
-function CheckboxTree({ nodes, checkedKeys, onChange, ...props }) {
+function CheckboxTree({
+  nodes,
+  checkedKeys,
+  onChange,
+  renderLeaf: providedRenderLeaf,
+  ...props
+}) {
   const treeValues = useMemo(
     () => _.fromPairs(checkedKeys.map((item) => [item, true])),
     [checkedKeys]
@@ -24,12 +30,15 @@ function CheckboxTree({ nodes, checkedKeys, onChange, ...props }) {
     [onChange, nodes, treeValues]
   );
 
+  const renderLeaf = (props) => <Leaf {...props} render={providedRenderLeaf} />;
+
   return (
     <Tree
       {...props}
       onChange={handleChange}
       nodes={nodes}
       checkedKeys={treeValues}
+      renderLeaf={renderLeaf}
     />
   );
 }
@@ -41,7 +50,6 @@ CheckboxTree.propTypes = {
 
 CheckboxTree.defaultProps = {
   ...Tree.defaultProps,
-  renderLeaf: (props) => <Leaf {...props} />,
   onChange: _.noop,
   checkedKeys: [],
 };
