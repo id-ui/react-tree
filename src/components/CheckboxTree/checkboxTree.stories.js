@@ -19,10 +19,7 @@ export default {
     renderLeaf: {
       disable: true,
       description:
-        'Function, that accepts all node props, checkedKeys and collapse props ({ open, close, toggle, isOpen }) and returns node content. Content should apply collapse functions from props to open/close content',
-      table: {
-        defaultValue: { summary: '(props) => <CheckboxTreeLeaf {...props} />' },
-      },
+        'Function, that accepts { checked, onChange, hasChildren, hasCheckedChildren, name, disabled, label, isOpen: is node open, toggle: toggle open state } and returns node content.',
     },
     colors: {
       control: 'object',
