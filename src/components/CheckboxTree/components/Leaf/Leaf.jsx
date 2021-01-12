@@ -44,7 +44,7 @@ function Leaf({
   );
 
   if (render) {
-    render({
+    return render({
       hasChildren,
       toggle,
       isOpen,
