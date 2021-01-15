@@ -1187,19 +1187,19 @@
   resolved "https://registry.yarnpkg.com/@icons/material/-/material-0.2.4.tgz#e90c9f71768b3736e76d7dd6783fc6c2afa88bc8"
   integrity sha512-QPcGmICAPbGLGb6F/yNf/KzKqvFx8z5qx3D1yFqVAjoFmXK35EgyW+cJ57Te3CNsmzblwtzakLGFqHPqrfb4Tw==
 
-"@idui/react-collapse@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@idui/react-collapse/-/react-collapse-2.0.2.tgz#1a16eefb2209dc57da4df62b84be82546ad2123c"
-  integrity sha512-9lKR3LFlG1B9vyO4/Gde/1iEltejN+IXDtOWwG6nwwDXaameeyqX20CiyqmkyKi1U5AzKBMmdVPbIq1e66LYpQ==
+"@idui/react-collapse@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@idui/react-collapse/-/react-collapse-2.0.6.tgz#d1b8db3648baff782007b28dfed07acc721ee055"
+  integrity sha512-MuC+J7pFc0eU4/L5Blx2vR+6sd59/ge36Tc5Z1Y2WJIFK9KIXG+kX4C7HJpDaNWG+q3Ahq6ooVlqPm4c7fixnQ==
   dependencies:
     framer-motion "^2.9.5"
     lodash "^4.17.20"
     prop-types "^15.7.2"
 
-"@idui/react-toggle-controls@^1.1.3":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@idui/react-toggle-controls/-/react-toggle-controls-1.1.3.tgz#dd633f7155b0ccee55ccd928f27ba47465280e39"
-  integrity sha512-AxsFItgjmBQm5upmoptRpQl7/K+pr4HfGIDXx/rHzZmp1XmBXr+JpG/UHyozMiuRzwUIf9P/m/O1IRCSZIxM0g==
+"@idui/react-toggle-controls@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@idui/react-toggle-controls/-/react-toggle-controls-1.1.4.tgz#438e50cc79c5e47a8087b9fea5104b7663202957"
+  integrity sha512-No2pyO01dSrfGrtD0EulFNWa71FgjASH8Kw7qGIppNOfcT9CQjVGUgA2/GeWneNU9dpNxNmDh39mlauesPyG/A==
   dependencies:
     prop-types "^15.7.2"
     styled-components "^5.2.1"

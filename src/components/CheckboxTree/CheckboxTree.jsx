@@ -43,9 +43,32 @@ function CheckboxTree({
   );
 }
 
+const colorsSetShape = PropTypes.shape({
+  background: PropTypes.string,
+  border: PropTypes.string,
+  icon: PropTypes.string,
+  hover: PropTypes.shape({
+    background: PropTypes.string,
+    border: PropTypes.string,
+    icon: PropTypes.string,
+  }),
+});
+
 CheckboxTree.propTypes = {
   ...Tree.propTypes,
   onChange: PropTypes.func,
+  checkedKeys: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  ),
+  colors: PropTypes.shape({
+    on: colorsSetShape,
+    off: colorsSetShape,
+    disabled: colorsSetShape,
+    anyChecked: colorsSetShape,
+  }),
+  allCheckedIcon: PropTypes.any,
+  anyCheckedIcon: PropTypes.any,
+  checkboxSize: PropTypes.string,
 };
 
 CheckboxTree.defaultProps = {

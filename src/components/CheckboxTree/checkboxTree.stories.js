@@ -15,6 +15,10 @@ export default {
         defaultValue: { summary: '[]' },
       },
     },
+    onChange: {
+      disable: true,
+      description: 'selection change handler',
+    },
     ...TreeStory.argTypes,
     renderLeaf: {
       disable: true,
