@@ -1,6 +1,6 @@
 {
   "name": "@idui/react-tree",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "React Tree Component",
   "author": "kaprisa57@gmail.com",
   "license": "MIT",
@@ -68,6 +68,7 @@
     "@testing-library/user-event": "^12.2.2",
     "babel-eslint": "^10.1.0",
     "babel-loader": "8.2.1",
+    "babel-plugin-styled-components": "^1.12.0",
     "coveralls": "^3.1.0",
     "eslint": "^7.13.0",
     "eslint-plugin-import": "^2.22.1",
@@ -90,8 +91,8 @@
     "dist"
   ],
   "dependencies": {
-    "@idui/react-collapse": "^2.0.8",
-    "@idui/react-toggle-controls": "^1.1.5",
+    "@idui/react-collapse": "^2.0.10",
+    "@idui/react-toggle-controls": "^1.1.6",
     "immer": "^8.0.0",
     "lodash": "^4.17.20",
     "prop-types": "^15.7.2",

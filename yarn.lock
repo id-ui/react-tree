@@ -1187,19 +1187,19 @@
   resolved "https://registry.yarnpkg.com/@icons/material/-/material-0.2.4.tgz#e90c9f71768b3736e76d7dd6783fc6c2afa88bc8"
   integrity sha512-QPcGmICAPbGLGb6F/yNf/KzKqvFx8z5qx3D1yFqVAjoFmXK35EgyW+cJ57Te3CNsmzblwtzakLGFqHPqrfb4Tw==
 
-"@idui/react-collapse@^2.0.8":
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/@idui/react-collapse/-/react-collapse-2.0.8.tgz#d642c963eac86db04d735515918d620adf642dc7"
-  integrity sha512-zv5y8Lgr7qJaW8s2R/dbu1B+rS5tmrLwWFnSUZX/2LDlBaTOPTb3d69b7sWu6vMnLXGtoVwFzcGPRbB+DTGI6g==
+"@idui/react-collapse@^2.0.10":
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/@idui/react-collapse/-/react-collapse-2.0.10.tgz#19ba7746cf3d83792aa1afc9dc5b24019d2dc7d6"
+  integrity sha512-RJQEJeiOfr8ousCuMBrFjgdOlKAVN3j1HgoDPcRsV+07unbPknLKtZ0mRKdaW9FqrjUeueOUuMTGt7YT/JBBrA==
   dependencies:
     framer-motion "^2.9.5"
     lodash "^4.17.20"
     prop-types "^15.7.2"
 
-"@idui/react-toggle-controls@^1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@idui/react-toggle-controls/-/react-toggle-controls-1.1.5.tgz#84192b50fbbfbf02ede64b64bcd4fa0667af8c9c"
-  integrity sha512-g6f61T0prGCz9s8p1X+gvYOyY5ZijvWkA7WzQL1H9arGLRrAs/LfgwopRGNcSNsw2Ad0TjmTDgDBEV7Nb3bQ6w==
+"@idui/react-toggle-controls@^1.1.6":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@idui/react-toggle-controls/-/react-toggle-controls-1.1.6.tgz#cf9be74efcc83200aaaabc105552627c8ce25f7f"
+  integrity sha512-8L2ybzzEIH6cSq+ep1ak9RHa/NM1QEMnFqj7jayNkpOWQfeY71HVwwtQOaclHllBXyPCt6PAhAt6ZZ2iDpvEnQ==
   dependencies:
     prop-types "^15.7.2"
     styled-components "^5.2.1"
@@ -3563,7 +3563,7 @@ babel-plugin-react-docgen@^4.2.1:
     lodash "^4.17.15"
     react-docgen "^5.0.0"
 
-"babel-plugin-styled-components@>= 1":
+"babel-plugin-styled-components@>= 1", babel-plugin-styled-components@^1.12.0:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.12.0.tgz#1dec1676512177de6b827211e9eda5a30db4f9b9"
   integrity sha512-FEiD7l5ZABdJPpLssKXjBUJMYqzbcNzBowfXDCdJhOpbhWiewapUaY+LZGT8R4Jg2TwOjGjG4RKeyrO5p9sBkA==
