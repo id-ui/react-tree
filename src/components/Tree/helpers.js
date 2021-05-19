@@ -1,5 +1,8 @@
 import _ from 'lodash';
 
+const hasChildren = (node) =>
+  Boolean(node.childNodes && node.childNodes.length);
+
 export const highlightNodes = ({
   nodes,
   regex,
@@ -23,7 +26,7 @@ export const highlightNodes = ({
       );
       newNode.isOpen = true;
     }
-    if (node.childNodes) {
+    if (hasChildren(node)) {
       newNode.childNodes = highlightNodes({
         nodes: node.childNodes,
         regex,

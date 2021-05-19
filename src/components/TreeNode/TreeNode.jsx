@@ -18,7 +18,7 @@ function TreeNode({
     setOpen(providedIsOpen);
   }, [providedIsOpen]);
 
-  if (!childNodes) {
+  if (!childNodes || !childNodes.length) {
     return renderLeaf(props);
   }
 

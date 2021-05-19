@@ -24,7 +24,10 @@ function Leaf({
 }) {
   const handleChange = useCallback(
     (checked) => {
-      onChange(!childNodes || checkedKeys[id] ? checked : true, id);
+      onChange(
+        !childNodes || !childNodes.length || checkedKeys[id] ? checked : true,
+        id
+      );
     },
     [onChange, id, childNodes, checkedKeys]
   );
@@ -89,7 +92,7 @@ Leaf.propTypes = {
   allCheckedIcon: PropTypes.any,
   anyCheckedIcon: PropTypes.any,
   checkboxSize: PropTypes.string,
-  render: PropTypes.func.isRequired,
+  render: PropTypes.func,
 };
 
 Leaf.defaultProps = {

@@ -1,7 +1,10 @@
 {
   "plugins": [
-    ["babel-plugin-styled-components", {
-      "namespace": "idui-tree"
-    }]
+    [
+      "babel-plugin-styled-components",
+      {
+        "namespace": "idui-tree"
+      }
+    ]
   ]
 }

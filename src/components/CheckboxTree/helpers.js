@@ -1,9 +1,12 @@
+const hasChildren = (node) =>
+  Boolean(node.childNodes && node.childNodes.length);
+
 export const setValuesRecursive = (node, checkedKeys, value) => {
   if (node.disabled) {
     return;
   }
 
-  if (node.childNodes) {
+  if (hasChildren(node)) {
     node.childNodes.forEach((child) =>
       setValuesRecursive(child, checkedKeys, value)
     );
@@ -14,7 +17,7 @@ export const setValuesRecursive = (node, checkedKeys, value) => {
 
 export const normalizeTree = (nodes, checkedKeys) =>
   nodes.forEach((node) => {
-    if (node.childNodes) {
+    if (hasChildren(node)) {
       normalizeTree(node.childNodes, checkedKeys);
       checkedKeys[node.id] = isAllCheckedDeep(node.childNodes, checkedKeys);
     }
@@ -25,7 +28,7 @@ export const findNodeDeep = (nodes, id) => {
     const node = nodes[index];
     if (node.id === id) {
       return node;
-    } else if (node.childNodes) {
+    } else if (hasChildren(node)) {
       const result = findNodeDeep(node.childNodes, id);
       if (result) {
         return result;
@@ -36,14 +39,14 @@ export const findNodeDeep = (nodes, id) => {
 
 export const isAllCheckedDeep = (nodes, checkedKeys) =>
   nodes.every((node) =>
-    node.childNodes
+    hasChildren(node)
       ? isAllCheckedDeep(node.childNodes, checkedKeys)
       : checkedKeys[node.id]
   );
 
 export const isAnyCheckedDeep = (nodes, checkedKeys) =>
   nodes.some((node) =>
-    node.childNodes
+    hasChildren(node)
       ? isAnyCheckedDeep(node.childNodes, checkedKeys)
       : checkedKeys[node.id]
   );
