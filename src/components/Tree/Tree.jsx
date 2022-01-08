@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import _ from 'lodash';
+import { omit } from 'lodash';
 import PropTypes from 'prop-types';
 import TreeNode from 'components/TreeNode';
 import { highlightNodes } from './helpers';
@@ -41,7 +41,7 @@ function Tree({
 }
 
 Tree.propTypes = {
-  ..._.omit(TreeNode.propTypes, ['childNodes', 'isOpen']),
+  ...omit(TreeNode.propTypes, ['childNodes', 'isOpen']),
   nodes: PropTypes.arrayOf(PropTypes.object),
   highlightClassName: PropTypes.string,
   search: PropTypes.string,

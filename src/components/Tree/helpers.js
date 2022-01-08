@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { get, clone, set, some } from 'lodash';
 
 const hasChildren = (node) =>
   Boolean(node.childNodes && node.childNodes.length);
@@ -13,13 +13,13 @@ export const highlightNodes = ({
   const result = [];
 
   nodes.forEach((node) => {
-    const shouldHighlight = regex.test(_.get(node, searchBy));
-    const newNode = _.clone(node);
+    const shouldHighlight = regex.test(get(node, searchBy));
+    const newNode = clone(node);
     if (shouldHighlight) {
-      _.set(
+      set(
         newNode,
         searchBy,
-        _.get(node, searchBy).replace(
+        get(node, searchBy).replace(
           regex,
           `<span class=${highlightClassName}>$&</span>`
         )
@@ -35,7 +35,7 @@ export const highlightNodes = ({
         searchBy,
       });
       if (!newNode.isOpen) {
-        newNode.isOpen = _.some(newNode.childNodes, 'isOpen');
+        newNode.isOpen = some(newNode.childNodes, 'isOpen');
       }
     }
 
