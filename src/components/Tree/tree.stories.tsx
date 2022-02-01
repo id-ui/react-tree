@@ -1,7 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { nodes } from 'sampleData';
 import { ifProp } from 'styled-tools';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { nodes, SampleTreeNodeObject } from '../../sampleData';
+import { LeafRenderer } from '../TreeNode/types';
 import Tree from './Tree';
 
 export default {
@@ -87,9 +89,9 @@ export default {
       description: 'TreeNode className',
     },
   },
-};
+} as ComponentMeta<typeof Tree>;
 
-export const playground = (props) => {
+export const Playground: ComponentStory<typeof Tree> = (props) => {
   return <Tree {...props} nodes={nodes} />;
 };
 
@@ -98,7 +100,11 @@ const CustomTree = styled(Tree)`
   margin-left: 3.5px;
 `;
 
-const CustomLeaf = styled.div`
+interface CustomLeafProps {
+  hasChildren: boolean;
+}
+
+const CustomLeaf = styled.div<CustomLeafProps>`
   color: rgba(0, 0, 0, 0.7);
   margin-bottom: 2px;
   ${ifProp(
@@ -113,14 +119,17 @@ const CustomLeaf = styled.div`
   )};
 `;
 
-const renderCustomLeaf = ({ toggle, isOpen, icon, label, hasChildren }) => (
+const renderCustomLeaf: LeafRenderer<
+  SampleTreeNodeObject,
+  Record<string, unknown>
+> = ({ toggle, isOpen, icon, label, hasChildren }) => (
   <CustomLeaf hasChildren={hasChildren} onClick={toggle}>
     {hasChildren && (isOpen ? '▾' : '▸') + ' '}
     {icon} {label}
   </CustomLeaf>
 );
 
-export const customTree = (props) => {
+export const customTree: ComponentStory<typeof Tree> = (props) => {
   return <CustomTree {...props} renderLeaf={renderCustomLeaf} nodes={nodes} />;
 };
 
@@ -130,26 +139,31 @@ const SearchTreeLeaf = styled.div`
   }
 `;
 
-export function SearchTree() {
+export const SearchTree: ComponentStory<typeof Tree> = () => {
   const [search, setSearch] = useState('');
   const handleSearch = useCallback((e) => {
     setSearch(e.target.value);
   }, []);
 
+  const renderLeaf: LeafRenderer<
+    SampleTreeNodeObject,
+    Record<string, unknown>
+  > = ({ toggle, isOpen, label, hasChildren }) => (
+    <SearchTreeLeaf onClick={toggle}>
+      {hasChildren && (isOpen ? '▾' : '▸') + ' '}
+      <span dangerouslySetInnerHTML={{ __html: label }} />
+    </SearchTreeLeaf>
+  );
+
   return (
     <div>
       <input type="search" onChange={handleSearch} />
-      <Tree
+      <Tree<SampleTreeNodeObject, Record<string, unknown>>
         nodes={nodes}
         search={search}
         filterHighlighted
-        renderLeaf={({ toggle, isOpen, label, hasChildren }) => (
-          <SearchTreeLeaf onClick={toggle}>
-            {hasChildren && (isOpen ? '▾' : '▸') + ' '}
-            <span dangerouslySetInnerHTML={{ __html: label }} />
-          </SearchTreeLeaf>
-        )}
+        renderLeaf={renderLeaf}
       />
     </div>
   );
-}
+};

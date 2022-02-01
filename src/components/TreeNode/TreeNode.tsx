@@ -1,25 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { Key, ReactElement, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Collapse from '@idui/react-collapse';
+import { get } from 'lodash';
 import { Body, Header } from './styled';
+import { TreeNodeProps } from './types';
 
-function TreeNode({
+function TreeNode<NodeObjectType, LeafType>({
   childNodes,
   renderLeaf,
-  childrenOffset,
-  idKey,
+  childrenOffset = '20px',
+  idKey = 'id',
   className,
   isOpen: providedIsOpen,
   ...props
-}) {
+}: TreeNodeProps<NodeObjectType, LeafType>): ReactElement {
   const [isOpen, setOpen] = useState(providedIsOpen);
 
   useEffect(() => {
     setOpen(providedIsOpen);
   }, [providedIsOpen]);
 
+  const leafProps = (props as unknown) as NodeObjectType & LeafType;
+
   if (!childNodes || !childNodes.length) {
-    return renderLeaf(props);
+    return renderLeaf(leafProps);
   }
 
   return (
@@ -28,7 +32,7 @@ function TreeNode({
         {(collapseHeaderProps) =>
           renderLeaf({
             ...collapseHeaderProps,
-            ...props,
+            ...leafProps,
             hasChildren: true,
             childNodes,
           })
@@ -38,10 +42,10 @@ function TreeNode({
         {childNodes.map((child, index) => (
           <TreeNode
             className={className}
-            key={child[idKey] || index}
+            key={get(child, idKey) || index}
             renderLeaf={renderLeaf}
             childrenOffset={childrenOffset}
-            {...props}
+            {...leafProps}
             {...child}
           />
         ))}
@@ -49,20 +53,5 @@ function TreeNode({
     </Collapse>
   );
 }
-
-TreeNode.propTypes = {
-  childNodes: PropTypes.arrayOf(PropTypes.object),
-  renderLeaf: PropTypes.func,
-  childrenOffset: PropTypes.string,
-  idKey: PropTypes.string,
-  className: PropTypes.string,
-  isOpen: PropTypes.bool,
-};
-
-TreeNode.defaultProps = {
-  childrenOffset: '20px',
-  renderLeaf: ({ toggle, label }) => <div onClick={toggle}>{label}</div>,
-  idKey: 'id',
-};
 
 export default TreeNode;

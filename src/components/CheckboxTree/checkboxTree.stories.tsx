@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { nodes } from 'sampleData';
-import TreeStory from 'components/Tree/tree.stories';
+import React, { Key, useState } from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { nodes, SampleTreeNodeObject } from '../../sampleData';
+import TreeStory from '../Tree/tree.stories';
 import CheckboxTree from './CheckboxTree';
 import { checkboxColors } from './components/Leaf/theme';
 
@@ -56,16 +57,17 @@ export default {
       table: { defaultValue: { summary: '20px' } },
     },
   },
-};
+} as ComponentMeta<typeof CheckboxTree>;
 
-export function Playground(props) {
-  const [checkedKeys, setCheckedKeys] = useState([]);
+export const Playground: ComponentStory<typeof CheckboxTree> = (props) => {
+  const [checkedKeys, setCheckedKeys] = useState<Key[]>([]);
   return (
-    <CheckboxTree
+    // @ts-ignore
+    <CheckboxTree<SampleTreeNodeObject>
       {...props}
       checkedKeys={checkedKeys}
       nodes={nodes}
       onChange={setCheckedKeys}
     />
   );
-}
+};

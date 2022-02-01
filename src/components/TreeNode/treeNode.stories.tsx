@@ -1,6 +1,8 @@
 import React from 'react';
-import { nodes } from 'sampleData';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { nodes, SampleTreeNodeObject } from '../../sampleData';
 import TreeNode from './TreeNode';
+import { LeafRenderer } from './types';
 
 export default {
   title: 'TreeNode',
@@ -54,8 +56,13 @@ export default {
       description: 'TreeNode className',
     },
   },
-};
+} as ComponentMeta<typeof TreeNode>;
 
-export const playground = (props) => {
-  return <TreeNode {...nodes[1]} {...props} />;
+const renderLeaf: LeafRenderer<
+  SampleTreeNodeObject,
+  Record<string, unknown>
+> = ({ toggle, label }) => <div onClick={toggle}>{label}</div>;
+
+export const Playground: ComponentStory<typeof TreeNode> = (props) => {
+  return <TreeNode {...nodes[1]} {...props} renderLeaf={renderLeaf} />;
 };

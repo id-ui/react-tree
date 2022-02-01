@@ -1,4 +1,13 @@
-export const nodes = [
+export interface SampleTreeNodeObject {
+  label: string;
+  id: string;
+  icon?: string;
+  value?: boolean;
+  disabled?: boolean;
+  childNodes?: SampleTreeNodeObject[];
+}
+
+export const nodes: SampleTreeNodeObject[] = [
   {
     label: 'Cake',
     id: 'Cake',

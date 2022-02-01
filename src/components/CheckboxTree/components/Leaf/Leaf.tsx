@@ -1,40 +1,42 @@
-import React, { useCallback, useMemo } from 'react';
-import PropTypes from 'prop-types';
-import { Checkbox } from '@idui/react-toggle-controls';
-import { isAnyCheckedDeep } from 'components/CheckboxTree/helpers';
+import React, { ReactElement, useCallback, useMemo } from 'react';
+import { get } from 'lodash';
+import { isAnyCheckedDeep } from '../../helpers';
 import { Container, LeafCheckbox, AnyCheckedIcon, ToggleIcon } from './styled';
 import { checkboxColors } from './theme';
+import { CheckboxTreeLeafProps } from './types';
 
-function Leaf({
+function Leaf<NodeObjectType>({
   label,
   id,
-  checkedKeys,
+  checkedKeysObject,
   onChange,
   toggle,
   disabled,
   className,
   childNodes,
-  colors,
+  colors = checkboxColors,
   allCheckedIcon,
-  anyCheckedIcon,
+  anyCheckedIcon = <AnyCheckedIcon />,
   checkboxSize,
   hasChildren,
   isOpen,
   render,
-}) {
+}: CheckboxTreeLeafProps<NodeObjectType>): ReactElement {
   const handleChange = useCallback(
     (checked) => {
       onChange(
-        !childNodes || !childNodes.length || checkedKeys[id] ? checked : true,
+        !childNodes || !childNodes.length || get(checkedKeysObject, 'id')
+          ? checked
+          : true,
         id
       );
     },
-    [onChange, id, childNodes, checkedKeys]
+    [onChange, id, childNodes, checkedKeysObject]
   );
 
   const isAnyChecked = useMemo(
-    () => childNodes && isAnyCheckedDeep(childNodes, checkedKeys),
-    [checkedKeys, childNodes]
+    () => childNodes && isAnyCheckedDeep(childNodes, checkedKeysObject),
+    [checkedKeysObject, childNodes]
   );
 
   const actualColors = useMemo(
@@ -46,13 +48,15 @@ function Leaf({
     [colors, isAnyChecked]
   );
 
+  const isChecked = get(checkedKeysObject, id);
+
   if (render) {
     return render({
       hasChildren,
       toggle,
       isOpen,
       name: id,
-      checked: checkedKeys[id],
+      checked: isChecked,
       onChange: handleChange,
       disabled,
       label,
@@ -66,11 +70,11 @@ function Leaf({
         <ToggleIcon onClick={toggle}>{isOpen ? '▾' : '▸'}</ToggleIcon>
       )}
       <LeafCheckbox
-        name={id}
-        checked={checkedKeys[id]}
+        name={id.toString()}
+        checked={isChecked}
         onChange={handleChange}
         disabled={disabled}
-        icon={checkedKeys[id] ? allCheckedIcon : anyCheckedIcon}
+        icon={isChecked ? allCheckedIcon : anyCheckedIcon}
         colors={actualColors}
         size={checkboxSize}
         label={label}
@@ -78,26 +82,5 @@ function Leaf({
     </Container>
   );
 }
-
-Leaf.propTypes = {
-  label: PropTypes.string,
-  id: PropTypes.string,
-  checkedKeys: PropTypes.object,
-  onChange: PropTypes.func,
-  toggle: PropTypes.func,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  childNodes: PropTypes.arrayOf(PropTypes.object),
-  colors: Checkbox.propTypes.colors,
-  allCheckedIcon: PropTypes.any,
-  anyCheckedIcon: PropTypes.any,
-  checkboxSize: PropTypes.string,
-  render: PropTypes.func,
-};
-
-Leaf.defaultProps = {
-  anyCheckedIcon: <AnyCheckedIcon />,
-  colors: checkboxColors,
-};
 
 export default Leaf;

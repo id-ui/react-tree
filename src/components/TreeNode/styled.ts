@@ -6,6 +6,10 @@ export const Header = styled(Collapse.Header)`
   cursor: pointer;
 `;
 
-export const Body = styled(Collapse.Body)`
+interface TreeNodeBodyProps {
+  offset: string;
+}
+
+export const Body = styled(Collapse.Body)<TreeNodeBodyProps>`
   padding-left: ${prop('offset')};
 `;
