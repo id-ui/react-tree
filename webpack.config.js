@@ -11,7 +11,7 @@ module.exports = {
   externals: [
     'react',
     'react-dom',
-    'lodash',
+    'lodash-es',
     'immer',
     'styled-components',
     'styled-tools',

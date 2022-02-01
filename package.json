@@ -1,6 +1,6 @@
 {
   "name": "@idui/react-tree",
-  "version": "1.2.9",
+  "version": "2.0.0",
   "description": "React Tree Component",
   "author": "kaprisa57@gmail.com",
   "license": "MIT",
@@ -72,7 +72,6 @@
     "@testing-library/react-hooks": "3.0.0",
     "@testing-library/user-event": "^12.2.2",
     "@types/jest-axe": "^3.5.3",
-    "@types/lodash": "^4.14.178",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "@types/styled-components": "^5.1.19",
@@ -98,7 +97,8 @@
     "ts-loader": "^9.2.6",
     "typescript": "^4.5.4",
     "webpack": "^5.0.0-rc.6",
-    "webpack-cli": "^4.0.0-rc.1"
+    "webpack-cli": "^4.0.0-rc.1",
+    "@types/lodash-es": "^4.17.5"
   },
   "files": [
     "dist"
@@ -107,7 +107,7 @@
     "@idui/react-collapse": "^2.1.1",
     "@idui/react-toggle-controls": "^1.2.0",
     "immer": "^8.0.0",
-    "lodash": "^4.17.20",
+    "lodash-es": "^4.17.21",
     "styled-components": "^5.2.1",
     "styled-tools": "^1.7.2"
   },

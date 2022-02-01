@@ -1,6 +1,6 @@
 import React, { Key, useCallback, useMemo } from 'react';
 import produce from 'immer';
-import { fromPairs, noop } from 'lodash';
+import { fromPairs, noop } from 'lodash-es';
 import Tree from '../Tree';
 import Leaf from './components/Leaf';
 import { findNodeDeep, normalizeTree, setValuesRecursive } from './helpers';

@@ -1,7 +1,7 @@
 import React, { Key, ReactElement, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Collapse from '@idui/react-collapse';
-import { get } from 'lodash';
+import { get } from 'lodash-es';
 import { Body, Header } from './styled';
 import { TreeNodeProps } from './types';
 

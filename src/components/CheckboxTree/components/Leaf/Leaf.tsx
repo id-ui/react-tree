@@ -1,5 +1,5 @@
 import React, { ReactElement, useCallback, useMemo } from 'react';
-import { get } from 'lodash';
+import { get } from 'lodash-es';
 import { isAnyCheckedDeep } from '../../helpers';
 import { Container, LeafCheckbox, AnyCheckedIcon, ToggleIcon } from './styled';
 import { checkboxColors } from './theme';

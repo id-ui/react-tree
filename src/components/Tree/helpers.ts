@@ -1,4 +1,4 @@
-import { get, clone, set, some } from 'lodash';
+import { get, clone, set, some } from 'lodash-es';
 
 const hasChildren = <NodeObjectType extends { childNodes?: NodeObjectType[] }>(
   node: NodeObjectType

@@ -1,5 +1,5 @@
 import React, { Fragment, Key, useEffect, useState } from 'react';
-import { get } from 'lodash';
+import { get } from 'lodash-es';
 import TreeNode from '../TreeNode';
 import { highlightNodes } from './helpers';
 import { TreeProps } from './types';
