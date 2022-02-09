@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "module": "es2015",
+    "target": "es5",
+    "noImplicitAny": true,
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "outDir": "./dist/",
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "lib": ["es2019"]
+  },
+  "include": [
+    "src/index.ts"
+  ],
+  "exclude": ["node_modules", "src/__tests__"]
+}

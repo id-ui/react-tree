@@ -2,8 +2,8 @@ import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import user from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import CheckboxTree from 'components/CheckboxTree';
-import { nodes } from 'sampleData';
+import CheckboxTree from '../components/CheckboxTree';
+import { nodes } from '../sampleData';
 
 const checkIfClosed = (el) => expect(el.parentElement.style.height).toBe('0px');
 const checkIfOpen = (el) => expect(el.parentElement.style.height).toBe('auto');

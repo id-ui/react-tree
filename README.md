@@ -30,7 +30,7 @@ import Tree from '@idui/react-tree'
 
 const nodes = [
     { label: 'Cake' },
-    { label: 'Coffee', children: [
+    { label: 'Coffee', childNodes: [
         { label: 'Cappuccino' },
         { label: 'Latte' },
         { label: 'Americano' },
@@ -114,7 +114,7 @@ import { CheckboxTree } from '@idui/react-tree'
 
 const nodes = [
     { label: 'Cake', id: 'cake' },
-    { label: 'Coffee', id: 'coffee', children: [
+    { label: 'Coffee', id: 'coffee', childNodes: [
         { label: 'Cappuccino', id: 'Cappuccino' },
         { label: 'Latte', id: 'Latte' },
         { label: 'Americano', id: 'Americano' },
@@ -143,7 +143,7 @@ import Tree from '@idui/react-tree'
 
 const nodes = [
     { label: 'Cake' },
-    { label: 'Coffee', children: [
+    { label: 'Coffee', childNodes: [
         { label: 'Cappuccino' },
         { label: 'Latte' },
         { label: 'Americano' },
