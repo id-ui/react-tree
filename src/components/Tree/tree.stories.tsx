@@ -100,7 +100,7 @@ export const Playground: ComponentStory<typeof Tree> = (props) => {
   return <Tree {...props} renderLeaf={renderLeaf} nodes={nodes} />;
 };
 
-const CustomTree = styled(Tree)`
+const StyledTree = styled(Tree)`
   border-left: 1px solid #aeaeae;
   margin-left: 3.5px;
 `;
@@ -134,8 +134,8 @@ const renderCustomLeaf: LeafRenderer<
   </CustomLeaf>
 );
 
-export const customTree: ComponentStory<typeof Tree> = (props) => {
-  return <CustomTree {...props} renderLeaf={renderCustomLeaf} nodes={nodes} />;
+export const CustomTree: ComponentStory<typeof Tree> = (props) => {
+  return <StyledTree {...props} renderLeaf={renderCustomLeaf} nodes={nodes} />;
 };
 
 const SearchTreeLeaf = styled.div`
