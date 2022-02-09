@@ -31,7 +31,7 @@ function Leaf<
   const handleChange = useCallback(
     (checked) => {
       onChange(
-        !childNodes || !childNodes.length || get(checkedKeysObject, 'id')
+        !childNodes || !childNodes.length || Boolean(checkedKeysObject[id.toString()])
           ? checked
           : true,
         id
