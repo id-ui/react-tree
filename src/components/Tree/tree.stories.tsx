@@ -91,8 +91,13 @@ export default {
   },
 } as ComponentMeta<typeof Tree>;
 
+const renderLeaf: LeafRenderer<
+  SampleTreeNodeObject,
+  Record<string, unknown>
+> = ({ toggle, label }) => <div onClick={toggle}>{label}</div>;
+
 export const Playground: ComponentStory<typeof Tree> = (props) => {
-  return <Tree {...props} nodes={nodes} />;
+  return <Tree {...props} renderLeaf={renderLeaf} nodes={nodes} />;
 };
 
 const CustomTree = styled(Tree)`

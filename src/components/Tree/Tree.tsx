@@ -1,5 +1,5 @@
 import React, { Fragment, Key, useEffect, useState } from 'react';
-import { get } from 'lodash-es';
+import { get } from '../../helpers';
 import TreeNode from '../TreeNode';
 import { highlightNodes } from './helpers';
 import { TreeProps } from './types';
@@ -14,6 +14,7 @@ function Tree<
   highlightClassName = 'highlight',
   idKey = 'id',
   searchBy = 'label',
+  renderLeaf,
   ...props
 }: TreeProps<NodeObjectType, LeafType>) {
   const [highlightedNodes, setHighlightedNodes] = useState(nodes);
@@ -34,14 +35,16 @@ function Tree<
     }
   }, [search, filterHighlighted, nodes, highlightClassName, searchBy]);
 
+  const treeNodeProps = props as LeafType;
+
   return (
     <Fragment>
       {highlightedNodes.map((item: NodeObjectType, index) => (
-        // @ts-ignore
         <TreeNode<NodeObjectType, LeafType>
           {...item}
-          key={(get(item, idKey) as Key) || index}
-          {...props}
+          key={get<Key>(item, idKey) || index}
+          renderLeaf={renderLeaf}
+          {...treeNodeProps}
         />
       ))}
     </Fragment>

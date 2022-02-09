@@ -1,11 +1,17 @@
 import React, { ReactElement, useCallback, useMemo } from 'react';
-import { get } from 'lodash-es';
+import { get } from '../../../../helpers';
 import { isAnyCheckedDeep } from '../../helpers';
 import { Container, LeafCheckbox, AnyCheckedIcon, ToggleIcon } from './styled';
 import { checkboxColors } from './theme';
 import { CheckboxTreeLeafProps } from './types';
 
-function Leaf<NodeObjectType>({
+function Leaf<
+  NodeObjectType extends {
+    childNodes?: NodeObjectType[];
+    disabled?: boolean;
+    id: string;
+  }
+>({
   label,
   id,
   checkedKeysObject,
@@ -48,7 +54,7 @@ function Leaf<NodeObjectType>({
     [colors, isAnyChecked]
   );
 
-  const isChecked = get(checkedKeysObject, id);
+  const isChecked = get<boolean>(checkedKeysObject, id.toString()) || false;
 
   if (render) {
     return render({

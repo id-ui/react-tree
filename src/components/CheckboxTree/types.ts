@@ -1,4 +1,4 @@
-import { Dispatch, Key, ReactElement, SetStateAction } from 'react';
+import { Key } from 'react';
 import { TreeProps } from '../Tree/types';
 import { LeafRenderer } from '../TreeNode/types';
 import { CheckboxTreeLeafProps } from './components/Leaf/types';

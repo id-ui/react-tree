@@ -1,6 +1,5 @@
 import React, { Key, useCallback, useMemo } from 'react';
-import produce from 'immer';
-import { fromPairs, noop } from 'lodash-es';
+import { noop } from '../../helpers';
 import Tree from '../Tree';
 import Leaf from './components/Leaf';
 import { findNodeDeep, normalizeTree, setValuesRecursive } from './helpers';
@@ -21,17 +20,17 @@ function CheckboxTree<
   ...props
 }: CheckboxTreeProps<NodeObjectType>) {
   const treeValues = useMemo(
-    () => fromPairs(checkedKeys.map((item) => [item, true])),
+    () => Object.fromEntries(checkedKeys.map((item) => [item, true])),
     [checkedKeys]
   );
 
   const handleChange = useCallback(
     (value: boolean, nodeId: Key): void => {
-      const newValues = produce(treeValues, (draft) => {
-        const node = findNodeDeep(nodes, nodeId);
-        setValuesRecursive(node, draft, value);
-        normalizeTree(nodes, draft);
-      });
+      const newValues = Object.assign({}, treeValues);
+      const node = findNodeDeep(nodes, nodeId);
+      setValuesRecursive(node, newValues, value);
+      normalizeTree(nodes, newValues);
+
       onChange(Object.keys(newValues).filter((key) => newValues[key]));
     },
     [onChange, nodes, treeValues]
@@ -42,7 +41,6 @@ function CheckboxTree<
   );
 
   return (
-    // @ts-ignore
     <Tree<NodeObjectType, CheckboxTreeLeafProps<NodeObjectType>>
       {...props}
       onChange={handleChange}

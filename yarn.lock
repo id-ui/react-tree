@@ -2099,18 +2099,17 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@idui/react-collapse@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@idui/react-collapse/-/react-collapse-2.1.1.tgz#4c0a90ba5a8413532c0efd471d4bf94488dd29dd"
-  integrity sha512-TYjwcGNX3wKozYUbpMdB5UXqRKVwBFvj7E0Xjf3HaVswspn9d7MnpROd77nDXBSPRvLKxTV4AjP3a+dgF0aFyA==
+"@idui/react-collapse@^2.1.3":
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/@idui/react-collapse/-/react-collapse-2.1.3.tgz#e92ac847599a448a033c87b19cb1a0e3d4cb9bc2"
+  integrity sha512-uN7HV9KGVZkRt/aFRWtIYb/kI2j0F/qS7+xpS328/AL4p83fJd9XHZX3P7Vc2WInMPT4b02YIWkKvjo3H1fZAA==
   dependencies:
     framer-motion "^2.9.5"
-    lodash "^4.17.20"
 
-"@idui/react-toggle-controls@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@idui/react-toggle-controls/-/react-toggle-controls-1.2.0.tgz#abeef4b459782c7e359786edacfea3fd3d78f355"
-  integrity sha512-Hng2NSYv7UPNlFe7/Glp2+NVMfs8PxDAK0mX2iADL2QjrlviTOefBevdYGqiAV4ajeXpajg9ORiyTY3aSe1CoQ==
+"@idui/react-toggle-controls@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@idui/react-toggle-controls/-/react-toggle-controls-1.2.1.tgz#7a7baf0efbd0b92d88c7fb9ae44c1db9b36e7852"
+  integrity sha512-InCKo17hzgXudS0gni2cFXOp4A94G2jSxKNhHLWa1QIMJ0KQCGXEusInUzdULaM4v25EU6g13xYQPPUKIhBpwg==
   dependencies:
     styled-components "^5.2.1"
     styled-tools "^1.7.2"
@@ -3654,18 +3653,6 @@
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
-
-"@types/lodash-es@^4.17.5":
-  version "4.17.5"
-  resolved "https://registry.yarnpkg.com/@types/lodash-es/-/lodash-es-4.17.5.tgz#1c3fdd16849d84aea43890b1c60da379fb501353"
-  integrity sha512-SHBoI8/0aoMQWAgUHMQ599VM6ZiSKg8sh/0cFqqlQQMyY9uEplc0ULU5yQNzcvdR4ZKa0ey8+vFmahuRbOCT1A==
-  dependencies:
-    "@types/lodash" "*"
-
-"@types/lodash@*":
-  version "4.14.178"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.178.tgz#341f6d2247db528d4a13ddbb374bcdc80406f4f8"
-  integrity sha512-0d5Wd09ItQWH1qFbEyQ7oTQ3GZrMfth5JkbN3EvTKLXcHLRDSXeLnlvlOn0wvxVIwK5o2M8JzP/OWz7T3NRsbw==
 
 "@types/mdast@^3.0.0":
   version "3.0.3"
@@ -8492,11 +8479,6 @@ immer@8.0.1:
   resolved "https://registry.yarnpkg.com/immer/-/immer-8.0.1.tgz#9c73db683e2b3975c424fb0572af5889877ae656"
   integrity sha512-aqXhGP7//Gui2+UrEtvxZxSquQVXTpZ7KDxfCcKAF3Vysvw0CViVaW9RZ1j1xlIYqaaaipBoqdqeibkc18PNvA==
 
-immer@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/immer/-/immer-8.0.0.tgz#08763549ba9dd7d5e2eb4bec504a8315bd9440c2"
-  integrity sha512-jm87NNBAIG4fHwouilCHIecFXp5rMGkiFrAuhVO685UnMAlOneEAnOyzPt8OnP47TC11q/E7vpzZe0WvwepFTg==
-
 import-fresh@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-2.0.0.tgz#d81355c15612d386c61f9ddd3922d4304822a546"
@@ -10013,11 +9995,6 @@ locate-path@^6.0.0:
   integrity sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==
   dependencies:
     p-locate "^5.0.0"
-
-lodash-es@^4.17.21:
-  version "4.17.21"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
-  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
 lodash.camelcase@^4.3.0:
   version "4.3.0"

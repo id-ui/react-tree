@@ -61,8 +61,8 @@ export default {
 
 export const Playground: ComponentStory<typeof CheckboxTree> = (props) => {
   const [checkedKeys, setCheckedKeys] = useState<Key[]>([]);
+
   return (
-    // @ts-ignore
     <CheckboxTree<SampleTreeNodeObject>
       {...props}
       checkedKeys={checkedKeys}

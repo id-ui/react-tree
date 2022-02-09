@@ -1,5 +1,5 @@
 export interface SampleTreeNodeObject {
-  label: string;
+  label?: string;
   id: string;
   icon?: string;
   value?: boolean;

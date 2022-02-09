@@ -1,10 +1,10 @@
-import { get, clone, set, some } from 'lodash-es';
+import { get, set } from '../../helpers';
 
 const hasChildren = <NodeObjectType extends { childNodes?: NodeObjectType[] }>(
   node: NodeObjectType
 ) => Boolean(node.childNodes && node.childNodes.length);
 
-type HighlightNodesArgs<NodeObjectType, LeafType> = {
+type HighlightNodesArgs<NodeObjectType> = {
   nodes?: NodeObjectType[];
   regex: RegExp;
   highlightClassName?: string;
@@ -13,22 +13,26 @@ type HighlightNodesArgs<NodeObjectType, LeafType> = {
 };
 
 export const highlightNodes = <
-  NodeObjectType extends { childNodes?: NodeObjectType[] },
-  LeafType
+  NodeObjectType extends {
+    childNodes?: (NodeObjectType & { isOpen?: boolean })[];
+  }
 >({
   nodes,
   regex,
   filterHighlighted,
   highlightClassName,
   searchBy,
-}: HighlightNodesArgs<NodeObjectType, LeafType>) => {
+}: HighlightNodesArgs<NodeObjectType>) => {
   const result: (NodeObjectType & { isOpen?: boolean })[] = [];
 
   nodes.forEach((node: NodeObjectType) => {
     const value: string = get(node, searchBy).toString();
 
     const shouldHighlight = regex.test(value);
-    const newNode: NodeObjectType & { isOpen?: boolean } = clone(node);
+    const newNode: NodeObjectType & { isOpen?: boolean } = Object.assign(
+      {},
+      node
+    );
     if (shouldHighlight) {
       set(
         newNode,
@@ -45,8 +49,9 @@ export const highlightNodes = <
         highlightClassName,
         searchBy,
       });
+
       if (!newNode.isOpen) {
-        newNode.isOpen = some(newNode.childNodes, 'isOpen');
+        newNode.isOpen = newNode.childNodes.some((item) => item.isOpen);
       }
     }
 

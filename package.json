@@ -97,17 +97,14 @@
     "ts-loader": "^9.2.6",
     "typescript": "^4.5.4",
     "webpack": "^5.0.0-rc.6",
-    "webpack-cli": "^4.0.0-rc.1",
-    "@types/lodash-es": "^4.17.5"
+    "webpack-cli": "^4.0.0-rc.1"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "@idui/react-collapse": "^2.1.1",
-    "@idui/react-toggle-controls": "^1.2.0",
-    "immer": "^8.0.0",
-    "lodash-es": "^4.17.21",
+    "@idui/react-collapse": "^2.1.3",
+    "@idui/react-toggle-controls": "^1.2.1",
     "styled-components": "^5.2.1",
     "styled-tools": "^1.7.2"
   },

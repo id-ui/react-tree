@@ -11,8 +11,6 @@ module.exports = {
   externals: [
     'react',
     'react-dom',
-    'lodash-es',
-    'immer',
     'styled-components',
     'styled-tools',
     '@idui/react-collapse',

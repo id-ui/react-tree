@@ -1,7 +1,6 @@
 import React, { Key, ReactElement, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import Collapse from '@idui/react-collapse';
-import { get } from 'lodash-es';
+import { get } from '../../helpers';
 import { Body, Header } from './styled';
 import { TreeNodeProps } from './types';
 
@@ -42,7 +41,7 @@ function TreeNode<NodeObjectType, LeafType>({
         {childNodes.map((child, index) => (
           <TreeNode
             className={className}
-            key={get(child, idKey) || index}
+            key={get<Key>(child, idKey) || index}
             renderLeaf={renderLeaf}
             childrenOffset={childrenOffset}
             {...leafProps}

@@ -1,5 +1,5 @@
 import { CollapseToggleProps } from '@idui/react-collapse/dist/components/Collapse/types';
-import { Key, ReactElement } from 'react';
+import { ReactElement } from 'react';
 
 export type LeafRenderer<NodeObjectType, LeafType> = (
   props: CollapseToggleProps &
