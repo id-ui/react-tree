@@ -54,7 +54,7 @@ function Leaf<
     [colors, isAnyChecked]
   );
 
-  const isChecked = get<boolean>(checkedKeysObject, id.toString()) || false;
+  const isChecked = Boolean(get(checkedKeysObject, id.toString()));
 
   if (render) {
     return render({

@@ -5,7 +5,7 @@ type PlainObject = Record<string, unknown>;
 const isObject = (value: unknown): value is PlainObject =>
   typeof value === 'object';
 
-export const get = <T>(object: unknown, path: string): T => {
+export const get = (object: unknown, path: string) => {
   const properties = path.split('.');
 
   let result: unknown = object;
@@ -21,7 +21,7 @@ export const get = <T>(object: unknown, path: string): T => {
     index++;
   }
 
-  return result as T;
+  return result;
 };
 
 export const set = (object: unknown, path: string, value: unknown) => {

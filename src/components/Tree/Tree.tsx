@@ -42,7 +42,7 @@ function Tree<
       {highlightedNodes.map((item: NodeObjectType, index) => (
         <TreeNode<NodeObjectType, LeafType>
           {...item}
-          key={get<Key>(item, idKey) || index}
+          key={(get(item, idKey) as Key) || index}
           renderLeaf={renderLeaf}
           {...treeNodeProps}
         />

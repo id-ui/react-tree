@@ -41,7 +41,7 @@ function TreeNode<NodeObjectType, LeafType>({
         {childNodes.map((child, index) => (
           <TreeNode
             className={className}
-            key={get<Key>(child, idKey) || index}
+            key={(get(child, idKey) as Key) || index}
             renderLeaf={renderLeaf}
             childrenOffset={childrenOffset}
             {...leafProps}
